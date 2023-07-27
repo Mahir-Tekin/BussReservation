@@ -1,0 +1,16 @@
+﻿@model List<Bus>
+
+
+
+    @foreach(var obj in Model){
+    <div class="card d-inline-block text-center m-2 border-3 border-danger" style="width: 18rem;">
+        <img class="card-img-top" src="@obj.FirmaLogo" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Firma: @obj.Firma</h5>
+            <p class="card-text">Koltuk Düzeni: @obj.KoltukDuzeni</p>
+            <p class="card-text">Marka: @obj.Marka</p>
+            <p class="card-text">Model: @obj.Model</p>
+            <a href="#" class="btn btn-danger">Güzergah Ata</a>
+        </div>
+    </div>
+    }

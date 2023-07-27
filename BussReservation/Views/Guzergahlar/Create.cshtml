@@ -1,0 +1,32 @@
+﻿@model Guzergahlar
+
+<form method="post">
+    <div class="border p-3 mt-4 border-danger border-bottom">
+        <div class="row pb-2">
+            <h2 class="text-black">Güzergah Oluştur</h2>
+            <hr class="text-danger"/>
+        </div>
+        <div class="mb-3">
+            <label asp-for="kalkis"></label>
+            <input asp-for="kalkis" class="form-control border-danger" />
+            <span asp-validation-for="kalkis" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="varis"></label>
+            <input asp-for="varis" class="form-control border-danger" />
+            <span asp-validation-for="varis" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="SeyahatSuresi"></label>
+            <input asp-for="SeyahatSuresi" class="form-control border-danger" />
+            <span asp-validation-for="SeyahatSuresi" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-outline-danger">Güzergah Ekle</button>
+    </div>
+</form>
+
+            @section Scripts{
+                @{
+                    <partial name="_ValidationScriptsPartial"/>
+                }
+            }

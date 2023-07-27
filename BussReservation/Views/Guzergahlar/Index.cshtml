@@ -1,0 +1,20 @@
+﻿@model List<Guzergahlar>
+
+<h1 class="text-center text-black card-header">
+    GÜZERGAHLAR
+</h1>
+
+@foreach(var obj in Model){
+    <div class="card text-center mt-5 border-danger border-5">
+        <div class="card-header">
+            GUZERGAH
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"> <span class="text-danger">@obj.kalkis</span> otogarından <span class="text-danger">@obj.varis</span> otogarına </h5>
+            <a asp-controller="Bus" asp-action="Index" asp-route-Id="@obj.Id" class="btn btn-danger">Bilet Al</a>
+        </div>
+        <div class="card-footer text-muted">
+            Ortalama @obj.SeyahatSuresi saat sürer.
+        </div>
+    </div>
+}

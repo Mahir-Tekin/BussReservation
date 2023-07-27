@@ -1,0 +1,42 @@
+﻿@model Bus
+<h1 class="text-center">Kalkış Tarihi</h1>
+<hr />
+<form method="post">
+    <div class="border p-3 mt-4 border-danger border-bottom">
+        <div class="row pb-2">
+            <h2 class="text-black">Ototbüs Ekle</h2>
+            <hr class="text-danger" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="Firma"></label>
+            <input asp-for="Firma" class="form-control border-danger" />
+            <span asp-validation-for="Firma" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="FirmaLogo"></label>
+            <input asp-for="FirmaLogo" class="form-control border-danger" />
+            <span asp-validation-for="FirmaLogo" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Marka"></label>
+            <input asp-for="Marka" class="form-control border-danger" />
+            <span asp-validation-for="Marka" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Model"></label>
+            <input asp-for="Model" class="form-control border-danger" />
+            <span asp-validation-for="Model" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Koltuk"></label>
+            <input asp-for="Koltuk" form-control border-danger />
+            <span asp-validation-for="Koltuk" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="KoltukDuzeni"></label>
+            <select asp-for="KoltukDuzeni" asp-items="ViewBag.Koltuklar"></select>
+            <span asp-validation-for="Koltuk" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-outline-danger">Otobüs Ekle</button>
+    </div>
+</form>
