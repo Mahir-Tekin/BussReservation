@@ -23,5 +23,6 @@ namespace BussReservation.Models
         public int GuzergahlarId { get; set; }
         public int KoltukAtandi { get; set; }
         public DateTime KalkisTarihi { get; set; }
+        // test...
     }
 }
