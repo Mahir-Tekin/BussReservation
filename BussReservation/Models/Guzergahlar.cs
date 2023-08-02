@@ -8,7 +8,7 @@ namespace BussReservation.Models
         [Key]
         public int Id { get; set; }
         [Required]
-        [MaxLength(30)]
+        [StringLength(50),MinLength(2)]
         [DisplayName("Kalkış Yeri")]
         public string kalkis { get; set; }
         [Required]
