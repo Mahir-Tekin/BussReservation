@@ -1,5 +1,7 @@
 ﻿using BussReservation.Data;
 using BussReservation.Models;
+using BussReservation.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -36,7 +38,7 @@ namespace BussReservation.Controllers
             //tarihin girileceği sayfayı yaparken bıraktın
             return View();
         }
-
+        [Authorize(Roles =SD.Role_Admin)]
         public IActionResult Create()
         {
             ViewBag.Koltuklar= new List<SelectListItem>

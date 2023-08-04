@@ -1,6 +1,9 @@
 ﻿using BussReservation.Data;
 using BussReservation.Models;
+using BussReservation.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace BussReservation.Controllers
 {
@@ -22,6 +25,7 @@ namespace BussReservation.Controllers
             return View();
         }
         [HttpPost]
+        [Authorize(Roles = SD.Role_Admin)]
         public IActionResult Create(Guzergahlar obj)
         {
             if(ModelState.IsValid)
