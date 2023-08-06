@@ -11,7 +11,7 @@ namespace BussReservation.Controllers
     {
         private readonly ApplicationDbContext _context;
         public BusController(ApplicationDbContext context)
-        {
+        {      
             _context = context;
         }
         public IActionResult Index(int Id)
@@ -20,23 +20,32 @@ namespace BussReservation.Controllers
             return View(objBusList);
         }
 
-        public IActionResult Ata(int Id)
+        public IActionResult BusList()
         {
-            ViewBag.Guzergah=Id;
             var objBusList = _context.Buses.ToList();
             return View(objBusList);
         }
 
+        public IActionResult Ata(int Id)
+        {
+            HttpContext.Session.SetInt32("Otobus", Id);
+            var objGuzergahList = _context.guzergahlars.ToList();
+            return View(objGuzergahList);
+        }
+
         public IActionResult Tarih(int Id)
         {
-            Bus atanacakOtobus = _context.Buses.Find(Id);
+            HttpContext.Session.SetInt32("Guzergah", Id);
+            Bus atanacakOtobus = _context.Buses.Find(HttpContext.Session.GetInt32("Otobus"));
             return View(atanacakOtobus);
         }
         [HttpPost]
         public IActionResult Tarih(Bus obj)
         {
-            //tarihin girileceği sayfayı yaparken bıraktın
-            return View();
+            obj.GuzergahlarId = (int)HttpContext.Session.GetInt32("Guzergah");
+            _context.Buses.Update(obj);
+            _context.SaveChanges();
+            return RedirectToAction("Index","Guzergahlar");
         }
         [Authorize(Roles =SD.Role_Admin)]
         public IActionResult Create()
@@ -69,6 +78,19 @@ namespace BussReservation.Controllers
                 return RedirectToAction("Index");
             }
             return View();
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var koltuklar = _context.Koltuks.Where(x => x.BusId == id);
+            foreach(var koltuk in koltuklar)
+            {
+                _context.Koltuks.Remove(koltuk);
+            }
+            Bus bus = _context.Buses.First(x=>x.Id==id);
+            _context.Buses.Remove(bus);
+            _context.SaveChanges();
+            return RedirectToAction("BusList");
         }
     }
 }

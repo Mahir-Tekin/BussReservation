@@ -22,7 +22,7 @@ namespace BussReservation.Models
         public int Koltuk { get; set; }
         public int GuzergahlarId { get; set; }
         public int KoltukAtandi { get; set; }
-        public DateTime KalkisTarihi { get; set; }
-        // test...
+        public string KalkisTarihi { get; set; }
+        public int Fiyat { get; set; }
     }
 }

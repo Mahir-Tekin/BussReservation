@@ -1,17 +1,20 @@
-﻿@model List<Bus>
+﻿@model List<Guzergahlar>
 
+<h1 class="text-center text-black card-header">
+    GÜZERGAH SEÇ
+</h1>
 
-
-@foreach (var obj in Model)
-{
-    <div class="card d-inline-block text-center m-2 border-3 border-danger" style="width: 18rem;">
-        <img class="card-img-top" src="@obj.FirmaLogo" alt="Card image cap">
+@foreach(var obj in Model){
+    <div class="card text-center mt-5 border-danger border-5">
+        <div class="card-header">
+            GUZERGAH
+        </div>
         <div class="card-body">
-            <h5 class="card-title">Firma: @obj.Firma</h5>
-            <p class="card-text">Koltuk Düzeni: @obj.KoltukDuzeni</p>
-            <p class="card-text">Marka: @obj.Marka</p>
-            <p class="card-text">Model: @obj.Model</p>
-            <a href="#" class="btn btn-danger">Güzergah Ata</a>
+            <h5 class="card-title"> <span class="text-danger">@obj.kalkis</span> otogarından <span class="text-danger">@obj.varis</span> otogarına </h5>
+            <a asp-controller="Bus" asp-action="Tarih" asp-route-Id="@obj.Id" class="btn btn-danger">Seç</a>
+        </div>
+        <div class="card-footer text-muted">
+            Ortalama @obj.SeyahatSuresi saat sürer.
         </div>
     </div>
 }
