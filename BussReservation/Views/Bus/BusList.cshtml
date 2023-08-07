@@ -11,10 +11,7 @@
             <p class="card-text">Koltuk Düzeni: @obj.KoltukDuzeni</p>
             <p class="card-text">Marka: @obj.Marka</p>
             <p class="card-text">Model: @obj.Model</p>
-            @if (obj.GuzergahlarId == null)
-            {
-                <a asp-controller="Bus" asp-action="Ata" asp-route-id="@obj.Id" class="btn btn-danger">Güzergah Ata</a>
-            }
+            <a asp-controller="Bus" asp-action="Ata" asp-route-id="@obj.Id" class="btn btn-danger">Güzergah Ata</a>
 
             <a asp-controller="Bus" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger">Sil</a>
         </div>

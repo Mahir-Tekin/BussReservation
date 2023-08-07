@@ -19,7 +19,7 @@ namespace BussReservation.Controllers
             var objGuzergahlarList = _context.guzergahlars.ToList();
             return View(objGuzergahlarList);
         }
-
+        [Authorize(Roles = SD.Role_Admin)]
         public IActionResult Create()
         {
             return View();

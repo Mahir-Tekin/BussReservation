@@ -1,0 +1,39 @@
+﻿@model List<Koltuk>
+@{
+    List<Guzergahlar> guzergahlar = ViewBag.TumGuzergahlar;
+    List<Bus> Otobusler = ViewBag.TumOtobusler;
+}
+
+    @guzergahlar.Count;
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Koltuk Numarası</th>
+            <th scope="col">Kalkış Tarihi</th>
+            <th scope="col">Guzergah</th>
+            <th scope="col">Fiyat</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model)
+        {
+            <tr>
+                <th>
+                    @obj.KoltukNo
+                </th>
+                <th>
+                    @Otobusler.FirstOrDefault(x=>x.Id==obj.BusId).KalkisTarihi
+                </th>
+                <th>
+                    @guzergahlar.FirstOrDefault(x=>x.Id==Otobusler.FirstOrDefault(x=>x.Id==obj.BusId).GuzergahlarId).kalkis Otogarından @guzergahlar.FirstOrDefault(x=>x.Id==Otobusler.FirstOrDefault(x=>x.Id==obj.BusId).GuzergahlarId).varis Otogarına gider.
+                </th>
+                <th>
+                    @Otobusler.FirstOrDefault(x=>x.Id==obj.BusId).Fiyat <a asp-controller="bus" asp-action="BiletSil" asp-route-id="@obj.Id" class=" btn btn-outline-danger"><i class="bi bi-cash-coin"></i> iptal</a>
+                </th>
+            </tr>
+
+        }
+    </tbody>
+</table>
+    

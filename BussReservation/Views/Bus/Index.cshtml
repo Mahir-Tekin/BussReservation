@@ -10,7 +10,7 @@
             <p class="card-text">Koltuk Düzeni: @obj.KoltukDuzeni</p>
             <p class="card-text">Marka: @obj.Marka</p>
             <p class="card-text">Model: @obj.Model</p>
-            <a href="#" class="btn btn-danger">Güzergah Ata</a>
+            <a asp-controller="Bus" asp-action="KoltukGetir" asp-route-id="@obj.Id" class="btn btn-danger">Bilet Al</a>
         </div>
     </div>
     }

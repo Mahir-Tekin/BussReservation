@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BussReservation.Models
 {
@@ -10,6 +11,7 @@ namespace BussReservation.Models
         public int BusId { get; set; }
         [Required]
         public int KoltukNo { get; set; }
-        public int YolcuId { get; set; }
+        [AllowNull]
+        public string YolcuId { get; set; }
     }
 }

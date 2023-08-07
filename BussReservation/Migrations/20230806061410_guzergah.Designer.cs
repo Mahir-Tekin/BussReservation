@@ -4,6 +4,7 @@ using BussReservation.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BussReservation.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230806061410_guzergah")]
+    partial class guzergah
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,7 +44,7 @@ namespace BussReservation.Migrations
                     b.Property<int>("Fiyat")
                         .HasColumnType("int");
 
-                    b.Property<int>("GuzergahlarId")
+                    b.Property<int>("Guzergah")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("KalkisTarihi")
@@ -110,9 +113,8 @@ namespace BussReservation.Migrations
                     b.Property<int>("KoltukNo")
                         .HasColumnType("int");
 
-                    b.Property<string>("YolcuId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("YolcuId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
