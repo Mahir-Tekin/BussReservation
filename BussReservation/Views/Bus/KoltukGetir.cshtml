@@ -4,7 +4,7 @@
 <div class="card w-50 mx-auto mt-3 text-center">
     <div class="card-header">
         <h5 class="card-title">Koltuk Seçiniz</h5>
-        <h5 class="text-success">@TempData["durum"]</h5>
+        <h5 class="text-success">- @TempData["durum"] -</h5>
     </div>
     <div class="card-body bg-gradient">
         @if (ViewBag.duzen=="2+1")
@@ -63,28 +63,60 @@
                     <div class="d-flex col-md-6">
                         @if (i < Model.Count)
                         {
-                            <div style=" width:7em; height:7em;" class=" bg-danger m-2 rounded-circle text-white">
-                                <h1 class="m-auto">@Model[i].KoltukNo</h1>
+                            <div style=" width:7em; height:7em; float:left;" class=" position-relative col-md-6 m-2 rounded-circle text-white">
+                                <h5 style="z-index:1; position:absolute; top: 65%; left: 50%; transform: translate(-50%, -50%); margin-left:auto; margin-right:auto;">@Model[i].KoltukNo</h5>
+                                @if ((Model[i].YolcuId == "*"))
+                                {
+                                    <a asp-controller="bus" asp-action="KoltukKaydet" asp-route-id="@Model[i].Id" style="position:absolute; left:0; top:0;" class="text-success"><i style="font-size:7em;" class="bi bi-person-circle"></i></a>
+                                }
+                                else
+                                {
+                                    <a disabled style="position:absolute; left:0; top:0;" class="text-danger"><i style="font-size:7em;" class="bi bi-person-circle"></i></a>
+                                }
                             </div>
                         }
                         @if (i + 1 < Model.Count)
                         {
-                            <div style="width:7em; height:7em;" class="bg-danger m-2 rounded-circle text-white">
-                                <h1 class="m-auto">@Model[i+1].KoltukNo</h1>
+                            <div style=" width:7em; height:7em; float:left;" class=" position-relative col-md-6 m-2 rounded-circle text-white">
+                                <h5 style="z-index:1; position:absolute; top: 65%; left: 50%; transform: translate(-50%, -50%); margin-left:auto; margin-right:auto;">@Model[i+1].KoltukNo</h5>
+                                @if ((Model[i + 1].YolcuId == "*"))
+                                {
+                                    <a asp-controller="bus" asp-action="KoltukKaydet" asp-route-id="@Model[i+1].Id" style="position:absolute; left:0; top:0;" class="text-success"><i style="font-size:7em;" class="bi bi-person-circle"></i></a>
+                                }
+                                else
+                                {
+                                    <a disabled style="position:absolute; left:0; top:0;" class="text-danger"><i style="font-size:7em;" class="bi bi-person-circle"></i></a>
+                                }
                             </div>
                         }
                     </div>
                     <div class="d-flex col-md-6">
                         @if (i + 2 < Model.Count)
                         {
-                            <div style=" width:7em; height:7em;" class=" bg-danger m-2 rounded-circle text-white">
-                                <h1 class="m-auto">@Model[i+2].KoltukNo</h1>
+                            <div style=" width:7em; height:7em; float:left;" class=" position-relative col-md-6 m-2 rounded-circle text-white">
+                                <h5 style="z-index:1; position:absolute; top: 65%; left: 50%; transform: translate(-50%, -50%); margin-left:auto; margin-right:auto;">@Model[i+2].KoltukNo</h5>
+                                @if ((Model[i + 2].YolcuId == "*"))
+                                {
+                                    <a asp-controller="bus" asp-action="KoltukKaydet" asp-route-id="@Model[i+2].Id" style="position:absolute; left:0; top:0;" class="text-success"><i style="font-size:7em;" class="bi bi-person-circle"></i></a>
+                                }
+                                else
+                                {
+                                    <a disabled style="position:absolute; left:0; top:0;" class="text-danger"><i style="font-size:7em;" class="bi bi-person-circle"></i></a>
+                                }
                             </div>
                         }
                         @if (i + 3 < Model.Count)
                         {
-                            <div style="width:7em; height:7em;" class="bg-danger m-2 rounded-circle text-white">
-                                <h1 class="m-auto">@Model[i+3].KoltukNo</h1>
+                            <div style=" width:7em; height:7em; float:left;" class=" position-relative col-md-6 m-2 rounded-circle text-white">
+                                <h5 style="z-index:1; position:absolute; top: 65%; left: 50%; transform: translate(-50%, -50%); margin-left:auto; margin-right:auto;">@Model[i+3].KoltukNo</h5>
+                                @if ((Model[i + 3].YolcuId == "*"))
+                                {
+                                    <a asp-controller="bus" asp-action="KoltukKaydet" asp-route-id="@Model[i+3].Id" style="position:absolute; left:0; top:0;" class="text-success"><i style="font-size:7em;" class="bi bi-person-circle"></i></a>
+                                }
+                                else
+                                {
+                                    <a disabled style="position:absolute; left:0; top:0;" class="text-danger"><i style="font-size:7em;" class="bi bi-person-circle"></i></a>
+                                }
                             </div>
                         }
                     </div>

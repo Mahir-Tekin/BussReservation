@@ -1,4 +1,5 @@
 ﻿using BussReservation.Data;
+using BussReservation.Migrations;
 using BussReservation.Models;
 using BussReservation.Utility;
 using Microsoft.AspNetCore.Authorization;
@@ -45,21 +46,20 @@ namespace BussReservation.Controllers
                 _context.Buses.Update(atanacakOtobus);
                 _context.SaveChanges();
             }
-            return View(atanacakOtobus);
+            return View();
         }
         [Authorize(Roles = SD.Role_Admin)]
         [HttpPost]
-        public IActionResult Tarih(Bus obj)
+        public IActionResult Tarih(Tarih obj)
         {
             Bus atanacakOtobus = _context.Buses.Find(HttpContext.Session.GetInt32("Otobus"));
-            atanacakOtobus.Fiyat = obj.Fiyat;
-            atanacakOtobus.KalkisTarihi = obj.KalkisTarihi;
-            if (ModelState.IsValid)
+            if (atanacakOtobus != null)
             {
+                atanacakOtobus.KalkisTarihi = obj.KalkisTarihi;
+                atanacakOtobus.Fiyat=obj.Fiyat;
                 _context.Buses.Update(atanacakOtobus);
                 _context.SaveChanges();
             }
-
             return RedirectToAction("Index", "Home");
 
         }

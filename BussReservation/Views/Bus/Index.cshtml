@@ -3,14 +3,20 @@
 
 
     @foreach(var obj in Model){
-    <div class="card d-inline-block text-center m-2 border-3 border-danger" style="width: 18rem;">
-        <img class="card-img-top" src="@obj.FirmaLogo" alt="Card image cap">
+    <div class="card d-inline-block text-center m-2 border-3 border-success" style="width: 18rem;">
+        <img class="card-img-top" src="@obj.FirmaLogo" alt="Card image cap" style="height:200px">
         <div class="card-body">
+            <hr class="my-2 text-success">
             <h5 class="card-title">Firma: @obj.Firma</h5>
-            <p class="card-text">Koltuk Düzeni: @obj.KoltukDuzeni</p>
-            <p class="card-text">Marka: @obj.Marka</p>
-            <p class="card-text">Model: @obj.Model</p>
-            <a asp-controller="Bus" asp-action="KoltukGetir" asp-route-id="@obj.Id" class="btn btn-danger">Bilet Al</a>
+            <hr class="my-2 text-success">
+            <h5 class="card-title">Fiyat</h5>
+            <h3 class="card-title text-success">@obj.Fiyat TL</h3>
+            <hr class="my-2 text-success">
+            <h5 class="card-title">Kalkış Tarihi: @obj.KalkisTarihi</h5>
+            <hr class="my-2 text-success">
+            <h5 class="card-title text-success">@obj.KoltukDuzeni</h5>
+            <hr class="my-2 text-success">
+            <a asp-controller="Bus" asp-action="KoltukGetir" asp-route-id="@obj.Id" class="btn btn-success">Bilet Al</a>
         </div>
     </div>
     }
